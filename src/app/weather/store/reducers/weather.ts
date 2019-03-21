@@ -7,11 +7,14 @@ export function reducer(state = initialState, action: WeatherActions): Weather[]
     switch (action.type) {
         case WeatherActionTypes.SearchForecastByCitySuccess:
             const index = state.findIndex(w => w.city.id === action.payload.city.id);
-            return [
+            return index > -1 ? [
                 ...state.slice(0, index),
                 action.payload,
                 ...state.slice(index + 1)
-            ];
+            ] : [
+                    action.payload,
+                    ...state
+                ];
 
         case WeatherActionTypes.SearchForecastByCityFail:
             // NOTE this error has to be displayed to the user did not do it becasue the template didn't have an error
