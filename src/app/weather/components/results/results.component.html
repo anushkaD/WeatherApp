@@ -1,0 +1,20 @@
+<table class="table" *ngIf="forecastForCity.length>0">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">City</th>
+      <th scope="col">6 AM</th>
+      <th scope="col">12 PM</th>
+      <th scope="col">6 PM</th>
+      <th scope="col">12 AM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of forecastForCity">
+      <td scope="row">{{row.city}}</td>
+      <td scope="row">{{row.sixAm}} &deg;</td>
+      <td scope="row">{{row.noon}} &deg;</td>
+      <td scope="row">{{row.sixPm}} &deg;</td>
+      <td scope="row">{{row.midnight}} &deg;</td>
+    </tr>
+  </tbody>
+</table>
